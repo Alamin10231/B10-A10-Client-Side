@@ -19,7 +19,7 @@ const Register = () => {
 
     register(email,password) 
     .then(result=> {console.log(result.user)
-
+      navigate("/");
     }) 
     .catch(error => {console.log(error.message)
 
@@ -32,11 +32,12 @@ const Register = () => {
 
 
 
-//     navigate("/");
+//    
   };
   const handleGoogle = ()=>{
     signinwithgoogle()
-  .then(console.log("signin with google successffully"))
+  .then(console.log("signin with google successffully")
+        )
   .catch(error =>{console.log(error.message)})
   }
 

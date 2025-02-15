@@ -93,7 +93,9 @@ const Navbar = () => {
          <Link to="/login">
          <button className="text-white bg-[#900C3F] px-4 py-2 rounded-lg hover:bg-[#7A0B35] transition duration-300">Sign In</button>
          </Link>
-          <button className="text-white bg-[#900C3F] px-4 py-2 rounded-lg hover:bg-[#7A0B35] transition duration-300">Sign Out</button>
+         <Link to="/register">
+         <button className="text-white bg-[#900C3F] px-4 py-2 rounded-lg hover:bg-[#7A0B35] transition duration-300">Sign Out</button>
+         </Link>
         </div>
       </div>
     </div>

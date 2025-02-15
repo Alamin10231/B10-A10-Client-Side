@@ -14,7 +14,7 @@ const Login = () => {
     console.log(email,password)
     login(email,password)
     .then(result => {console.log(result.user)
-                    
+      navigate("/")          
     })
     .catch(error => {console.log(error.message)
                     
@@ -24,8 +24,13 @@ const Login = () => {
   };
   const handleGoogle = ()=>{
     signinwithgoogle()
-  .then(console.log("signin with google successffully"))
-  .catch(error =>{console.log(error.message)})
+    .then(result => {console.log(result.user)
+      navigate("/")          
+    })
+  
+  .catch(error =>{console.log(error.message)
+    
+  })
   }
 
   return (
