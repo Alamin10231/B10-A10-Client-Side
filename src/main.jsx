@@ -7,10 +7,13 @@ import {
 // import {router} from './routes/Routes';
 import './index.css'
 import router from './routes/routes';
+import AuthProvider from '../AuthProvider/AuthProvider';
 
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-   <RouterProvider router={router} />
+  <AuthProvider>
+  <RouterProvider router={router} />
+  </AuthProvider>
   </StrictMode>,
 )

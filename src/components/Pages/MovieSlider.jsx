@@ -9,7 +9,7 @@ const MovieSlider = () => {
   const [moviedata, setmoviedata] = useState([]);
 
   useEffect(() => {
-    fetch("/Data/banner.json") // পাথটি নিশ্চিত করুন
+    fetch("/Data/banner.json") 
       .then((res) => res.json())
       .then((data) => {
         setmoviedata(data);

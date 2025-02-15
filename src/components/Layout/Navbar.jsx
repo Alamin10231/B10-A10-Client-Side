@@ -1,7 +1,10 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import logoicon from "../../assets/icon/movielogo.png";
+import { useContext } from "react";
+import { Authcontext } from "../../../AuthProvider/AuthProvider";
 
 const Navbar = () => {
+  const {name} =useContext(Authcontext)
   const list = (
     <>
       <NavLink
@@ -12,6 +15,7 @@ const Navbar = () => {
       >
         <li>Home</li>
       </NavLink>
+     
       <NavLink
         to="/allmovies"
         className={({ isActive }) =>
@@ -67,7 +71,7 @@ const Navbar = () => {
               />
             </svg>
           </div>
-          <ul className="menu menu-sm dropdown-content bg-[#C70039] rounded-box z-[1] mt-3 w-52 p-2 shadow">
+          <ul className="menu menu-sm dropdown-content  bg-[#C70039] rounded-box z-[1] mt-3 w-52 p-2 shadow">
             {list}
           </ul>
         </div>
@@ -75,6 +79,7 @@ const Navbar = () => {
           <a className="btn btn-ghost text-2xl text-white">
             <img className="w-8 h-8" src={logoicon} alt="" />
             MovieNest
+            
           </a>
         </div>
       </div>
@@ -85,7 +90,9 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         <div className="flex gap-4">
-          <button className="text-white bg-[#900C3F] px-4 py-2 rounded-lg hover:bg-[#7A0B35] transition duration-300">Sign In</button>
+         <Link to="/login">
+         <button className="text-white bg-[#900C3F] px-4 py-2 rounded-lg hover:bg-[#7A0B35] transition duration-300">Sign In</button>
+         </Link>
           <button className="text-white bg-[#900C3F] px-4 py-2 rounded-lg hover:bg-[#7A0B35] transition duration-300">Sign Out</button>
         </div>
       </div>

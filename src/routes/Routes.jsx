@@ -6,6 +6,8 @@ import AddMovie from "../components/Pages/AddMovie";
 import ALLMovies from "../components/Pages/ALLMovies";
 import Blogs from "../components/Pages/Blogs";
 import MyFavorites from "../components/Pages/MyFavorites";
+import Login from "../components/Auth/Login";
+import Register from "../components/Auth/Register";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -26,10 +28,19 @@ const router = createBrowserRouter([
        {
         path: "/blogs",
         element: <Blogs></Blogs>,
+        loader:()=>fetch('/Data/blog.json')
       },
        {
         path: "/myfavorites",
         element: <MyFavorites></MyFavorites>,
+      },
+      {
+        path:"/login",
+        element:<Login></Login>
+      },
+      {
+        path:"/register",
+        element:<Register></Register>
       },
     ],
   },
