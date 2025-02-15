@@ -1,19 +1,44 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
+import { Authcontext } from "../../../AuthProvider/AuthProvider";
 
 const Register = () => {
   const navigate = useNavigate();
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [photoUrl, setPhotoUrl] = useState("");
-  const [password, setPassword] = useState("");
+  const {register,signinwithgoogle}= useContext(Authcontext)
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Registration logic here
-    navigate("/");
+   
+    const name = e.target.name.value;
+    const email = e.target.email.value;
+    const photourl = e.target.photourl.value;
+    const password = e.target.password.value;
+
+    console.log(name,email,photourl,password)
+
+    register(email,password) 
+    .then(result=> {console.log(result.user)
+
+    }) 
+    .catch(error => {console.log(error.message)
+
+    }) 
+
+    
+    
+    
+
+
+
+
+//     navigate("/");
   };
+  const handleGoogle = ()=>{
+    signinwithgoogle()
+  .then(console.log("signin with google successffully"))
+  .catch(error =>{console.log(error.message)})
+  }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-600 via-purple-500 to-pink-500">
@@ -56,9 +81,8 @@ const Register = () => {
             <input
               id="photoUrl"
               type="url"
-              placeholder="Enter your photo URL"
-            
-        
+              placeholder="Enter your photo URL" 
+              name="photourl" 
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
               required
             />
@@ -71,6 +95,7 @@ const Register = () => {
               id="password"
               type="password"
               placeholder="Create a password"
+              name="password"
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
               required
             />
@@ -83,7 +108,7 @@ const Register = () => {
           </button>
         </form>
         <div className="mt-6 flex items-center justify-center">
-          <button className="flex items-center gap-2 border border-gray-300 rounded-lg px-4 py-2 hover:bg-gray-100 transition duration-200">
+          <button onClick={handleGoogle} className="flex items-center gap-2 border border-gray-300 rounded-lg px-4 py-2 hover:bg-gray-100 transition duration-200">
             <FcGoogle size={24} />
             <span>Sign up with Google</span>
           </button>

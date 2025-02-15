@@ -1,19 +1,32 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
+import { Authcontext } from "../../../AuthProvider/AuthProvider";
 
 const Login = () => {
   const navigate = useNavigate();
-  
+  const {login,signinwithgoogle}= useContext(Authcontext)
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
     console.log(email,password)
+    login(email,password)
+    .then(result => {console.log(result.user)
+                    
+    })
+    .catch(error => {console.log(error.message)
+                    
+    })
     // Login logic here
-    navigate("/");
+//     navigate("/");
   };
+  const handleGoogle = ()=>{
+    signinwithgoogle()
+  .then(console.log("signin with google successffully"))
+  .catch(error =>{console.log(error.message)})
+  }
 
   return (
     <div
@@ -65,7 +78,7 @@ const Login = () => {
           </button>
         </form>
         <div className="mt-6 flex items-center justify-center">
-          <button className="flex items-center gap-2 border border-gray-300 rounded-lg px-4 py-2 hover:bg-gray-100 transition duration-200">
+          <button onClick={handleGoogle} className="flex items-center gap-2 border border-gray-300 rounded-lg px-4 py-2 hover:bg-gray-100 transition duration-200">
             <FcGoogle size={24} />
             <span>Sign in with Google</span>
           </button>
