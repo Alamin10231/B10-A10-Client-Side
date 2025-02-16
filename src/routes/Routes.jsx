@@ -8,18 +8,22 @@ import Blogs from "../components/Pages/Blogs";
 import MyFavorites from "../components/Pages/MyFavorites";
 import Login from "../components/Auth/Login";
 import Register from "../components/Auth/Register";
+import PrivateRoute from "../../PrivateRoute/PrivateRoute";
+import NotFound from "../components/NotFound/NotFound";
 const router = createBrowserRouter([
   {
     path: "/",
+    
     element: <MainComponent></MainComponent>,
+    errorElement:<NotFound></NotFound>,
     children: [
       {
-        path: "/home",
+        path: "/",
         element: <Home></Home>,
       },
       {
         path: "/addmovie",
-        element: <AddMovie></AddMovie>,
+        element: <PrivateRoute><AddMovie></AddMovie></PrivateRoute>,
       },
        {
         path: "/AllMovies",
@@ -32,7 +36,7 @@ const router = createBrowserRouter([
       },
        {
         path: "/myfavorites",
-        element: <MyFavorites></MyFavorites>,
+        element: <PrivateRoute><MyFavorites></MyFavorites></PrivateRoute>,
       },
       {
         path:"/login",

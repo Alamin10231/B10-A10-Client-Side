@@ -2,44 +2,59 @@ import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { Authcontext } from "../../../AuthProvider/AuthProvider";
-
+import { toast } from "react-toastify";
 const Register = () => {
   const navigate = useNavigate();
-  const {register,signinwithgoogle}= useContext(Authcontext)
+  const { register, signinwithgoogle } = useContext(Authcontext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-   
+
     const name = e.target.name.value;
     const email = e.target.email.value;
     const photourl = e.target.photourl.value;
     const password = e.target.password.value;
 
-    console.log(name,email,photourl,password)
+    console.log(name, email, photourl, password);
 
-    register(email,password) 
-    .then(result=> {console.log(result.user)
-      navigate("/");
-    }) 
-    .catch(error => {console.log(error.message)
+    const emailregex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if(!emailregex.test(email)){
+      toast.error("Email is valid");
+      return;
+    }
+    const passwordregex = /^(?=.*[A-Z])(?=.*[a-z]).{6,}$/;
+    if(!passwordregex.test(password)){
+      
+      toast.error("Password must contain at least one uppercase letter, one lowercase letter, and be at least 6 characters long");
+      return;
+    }
 
-    }) 
+    register(email, password)
+      .then((result) => {
+        console.log(result.user);
+        toast.success("Successfully Register");
 
-    
-    
-    
+        navigate("/home");
+      })
+      .catch((error) => {
+        console.log(error.message);
+        toast.error(error.message);
+      });
 
-
-
-
-//    
+    //
   };
-  const handleGoogle = ()=>{
+  const handleGoogle = () => {
     signinwithgoogle()
-  .then(console.log("signin with google successffully")
-        )
-  .catch(error =>{console.log(error.message)})
-  }
+    .then(result => {console.log(result.user)
+      toast.success("congrachulation")
+      navigate("/");
+    })
+      .catch((error) => {
+        console.log(error.message);
+        toast.error(error.message);
+      });
+  };
+
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-600 via-purple-500 to-pink-500">
@@ -49,47 +64,58 @@ const Register = () => {
         </h2>
         <form onSubmit={handleSubmit} className="space-y-5">
           <div>
-            <label htmlFor="name" className="block text-gray-700 font-medium mb-1">
+            <label
+              htmlFor="name"
+              className="block text-gray-700 font-medium mb-1"
+            >
               Name
             </label>
             <input
               id="name"
               type="text"
               placeholder="Enter your name"
-                    name="name"
+              name="name"
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
               required
             />
           </div>
           <div>
-            <label htmlFor="email" className="block text-gray-700 font-medium mb-1">
+            <label
+              htmlFor="email"
+              className="block text-gray-700 font-medium mb-1"
+            >
               Email
             </label>
             <input
               id="email"
               type="email"
               placeholder="Enter your email"
-            name="email"
-            
+              name="email"
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
               required
             />
           </div>
           <div>
-            <label htmlFor="photoUrl" className="block text-gray-700 font-medium mb-1">
+            <label
+              htmlFor="photoUrl"
+              className="block text-gray-700 font-medium mb-1"
+            >
               Photo URL
             </label>
             <input
               id="photoUrl"
               type="url"
-              placeholder="Enter your photo URL" 
-              name="photourl" 
+              placeholder="Enter your photo URL"
+              name="photourl"
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
               required
             />
           </div>
           <div>
-            <label htmlFor="password" className="block text-gray-700 font-medium mb-1">
+            <label
+              htmlFor="password"
+              className="block text-gray-700 font-medium mb-1"
+            >
               Password
             </label>
             <input
@@ -109,7 +135,10 @@ const Register = () => {
           </button>
         </form>
         <div className="mt-6 flex items-center justify-center">
-          <button onClick={handleGoogle} className="flex items-center gap-2 border border-gray-300 rounded-lg px-4 py-2 hover:bg-gray-100 transition duration-200">
+          <button
+            onClick={handleGoogle}
+            className="flex items-center gap-2 border border-gray-300 rounded-lg px-4 py-2 hover:bg-gray-100 transition duration-200"
+          >
             <FcGoogle size={24} />
             <span>Sign up with Google</span>
           </button>

@@ -1,11 +1,15 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { Authcontext } from "../../../AuthProvider/AuthProvider";
+import { toast } from "react-toastify";
 
 const Login = () => {
+  const emailRef = useRef();
+  const [success,setsuccess]= useState(false)
+const [error,seterror]= useState('')
   const navigate = useNavigate();
-  const {login,signinwithgoogle}= useContext(Authcontext)
+  const {login,signinwithgoogle,resetpass}= useContext(Authcontext)
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -13,11 +17,17 @@ const Login = () => {
     const password = e.target.password.value;
     console.log(email,password)
     login(email,password)
+    setsuccess(false)
+    seterror('')
+    login(email,password)
     .then(result => {console.log(result.user)
+      toast.success("Successfully login")
+      setsuccess(true)
       navigate("/")          
     })
     .catch(error => {console.log(error.message)
-                    
+      setsuccess(false)
+      toast.error(error.message)            
     })
     // Login logic here
 //     navigate("/");
@@ -25,12 +35,30 @@ const Login = () => {
   const handleGoogle = ()=>{
     signinwithgoogle()
     .then(result => {console.log(result.user)
+      toast.success("Successfully login")
+     
       navigate("/")          
     })
   
   .catch(error =>{console.log(error.message)
-    
+    toast.error("Please Try again")  
   })
+  }
+  const handleforgetpass =(e)=>{
+    e.preventDefault()
+    const email = emailRef.current.value;
+   if(!email){
+    toast.error("Please enter your email address.")
+    return
+   }
+    resetpass(email)
+    .then(()=>{
+      toast.success("Password reset email sent. Please check your inbox.");
+    })
+    .catch(error =>{console.log(error.message)
+      toast.error(error.message);
+    })
+   
   }
 
   return (
@@ -50,14 +78,14 @@ const Login = () => {
               id="email"
               type="email"
               placeholder="Enter your email"
-             name="email"
+             name="email" ref={emailRef}
              
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
               required
             />
           </div>
           <div>
-            <label htmlFor="password" className="block text-gray-700 font-medium mb-1">
+            <label onClick={handleforgetpass} htmlFor="password" className="block text-gray-700 font-medium mb-1">
               Password
             </label>
             <input
