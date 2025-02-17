@@ -1,9 +1,10 @@
 import React from 'react';
+import FeatureMovie from '../FeatureMovie/FeatureMovie';
 
 const ALLMovies = () => {
                     return (
                                         <div>
-                                                            ALl Movies
+                                       <h1>hlw</h1>
                                         </div>
                     );
 };

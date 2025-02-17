@@ -10,6 +10,8 @@ import Login from "../components/Auth/Login";
 import Register from "../components/Auth/Register";
 import PrivateRoute from "../../PrivateRoute/PrivateRoute";
 import NotFound from "../components/NotFound/NotFound";
+import MovieDetails from "../components/MovieDetails/MovieDetails";
+import UpdateMovie from "../components/Pages/UpdateMovie";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -46,6 +48,16 @@ const router = createBrowserRouter([
         path:"/register",
         element:<Register></Register>
       },
+      {
+        path:"/moviedetails/:id",
+        element:<PrivateRoute><MovieDetails></MovieDetails></PrivateRoute>,
+        loader:({params})=>fetch(`https://movie-nest-website-server.vercel.app/movie/${params.id}`)
+      },
+      {
+        path:"/updatemovie/:id",
+        element:<PrivateRoute><UpdateMovie></UpdateMovie></PrivateRoute>,
+        loader:({params})=>fetch(`https://movie-nest-website-server.vercel.app/movie/${params.id}`)
+      }
     ],
   },
 ]);

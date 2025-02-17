@@ -32,10 +32,11 @@ const MovieSlider = () => {
           768: { slidesPerView: 3 },
           1024: { slidesPerView: 4 },
         }}
+        className="swiper-container " // কাস্টম ক্লাস যোগ করুন
       >
         {moviedata.map((movie, index) => (
           <SwiperSlide key={index}>
-            <div className="movie-card py-10">
+            <div className="movie-card py-10 z-10">
               <img 
                 src={movie.posterImage}
                 alt={movie.posterName}
@@ -43,7 +44,6 @@ const MovieSlider = () => {
               />
               <div className="mt-2">
                 <h3 className="text-lg font-semibold">{movie.posterName}</h3>
-               
               </div>
             </div>
           </SwiperSlide>

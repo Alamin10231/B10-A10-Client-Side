@@ -9,7 +9,7 @@ const Navbar = () => {
   const { user, signout } = useContext(Authcontext);
   const navigate = useNavigate();
 
-  // Navigation links
+  
   const list = (
     <>
       <NavLink
@@ -69,7 +69,7 @@ const Navbar = () => {
     </>
   );
 
-  // Handle sign out
+  
   const handleSignOut = () => {
     signout()
       .then(() => {
@@ -101,7 +101,8 @@ const Navbar = () => {
               />
             </svg>
           </div>
-          <ul className="menu menu-sm dropdown-content bg-[#C70039] rounded-box z-[1] mt-3 w-52 p-2 shadow">
+          
+          <ul className="menu menu-sm dropdown-content bg-[#C70039]  rounded-box z-[100] mt-3 w-52 p-2 shadow">
             {list}
           </ul>
         </div>
@@ -120,7 +121,7 @@ const Navbar = () => {
       <div className="navbar-end">
         <div className="flex gap-4">
           {user?.email ? (
-            // If user is logged in, show "Sign Out" button
+           
             <button
               onClick={handleSignOut}
               className="text-white bg-[#900C3F] px-4 py-2 rounded-lg hover:bg-[#7A0B35] transition duration-300"
@@ -128,7 +129,7 @@ const Navbar = () => {
               Sign out
             </button>
           ) : (
-            // If user is not logged in, show "Sign In" button
+          
             <Link to="/login">
               <button className="text-white bg-[#900C3F] px-4 py-2 rounded-lg hover:bg-[#7A0B35] transition duration-300">
                 Sign in
