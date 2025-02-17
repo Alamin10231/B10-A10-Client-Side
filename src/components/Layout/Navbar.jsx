@@ -73,7 +73,7 @@ const Navbar = () => {
   const handleSignOut = () => {
     signout()
       .then(() => {
-        toast.success("Successfully signed out");
+        // toast.success("Successfully signed out");
         navigate("/login");
       })
       .catch((error) => {
@@ -129,12 +129,23 @@ const Navbar = () => {
               Sign out
             </button>
           ) : (
-          
-            <Link to="/login">
+            <>
+      <div className=" space-x-3">
+      <Link to="/login">
               <button className="text-white bg-[#900C3F] px-4 py-2 rounded-lg hover:bg-[#7A0B35] transition duration-300">
                 Sign in
               </button>
             </Link>
+      <button
+              onClick={handleSignOut}
+              className="text-white bg-[#900C3F] px-4 py-2 rounded-lg hover:bg-[#7A0B35] transition duration-300"
+            >
+              Sign out
+            </button>
+
+      </div>
+            
+            </>
           )}
         </div>
       </div>

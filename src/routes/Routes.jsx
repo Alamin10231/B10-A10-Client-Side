@@ -28,7 +28,7 @@ const router = createBrowserRouter([
         element: <PrivateRoute><AddMovie></AddMovie></PrivateRoute>,
       },
        {
-        path: "/AllMovies",
+        path: "/allmovies",
         element: <ALLMovies></ALLMovies>,
       },
        {
@@ -39,6 +39,7 @@ const router = createBrowserRouter([
        {
         path: "/myfavorites",
         element: <PrivateRoute><MyFavorites></MyFavorites></PrivateRoute>,
+        
       },
       {
         path:"/login",

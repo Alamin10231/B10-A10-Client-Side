@@ -4,6 +4,7 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import "animate.css"; // Import Animate.css
 
 const MovieSlider = () => {
   const [moviedata, setmoviedata] = useState([]);
@@ -17,14 +18,14 @@ const MovieSlider = () => {
   }, []);
 
   return (
-    <div className="movie-slider">
+    <div className="movie-slider animate__animated animate__fadeIn">
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={20}
         slidesPerView={4}
         navigation
         pagination={{ clickable: true }}
-        autoplay={{ delay: 3000, disableOnInteraction: false }}
+        autoplay={{ delay:2000, disableOnInteraction: false }}
         loop={true}
         breakpoints={{
           320: { slidesPerView: 1 },
@@ -32,15 +33,15 @@ const MovieSlider = () => {
           768: { slidesPerView: 3 },
           1024: { slidesPerView: 4 },
         }}
-        className="swiper-container " // কাস্টম ক্লাস যোগ করুন
+        className="swiper-container"
       >
         {moviedata.map((movie, index) => (
-          <SwiperSlide key={index}>
+          <SwiperSlide key={index} className="animate__animated animate__fadeIn">
             <div className="movie-card py-10 z-10">
               <img 
                 src={movie.posterImage}
                 alt={movie.posterName}
-                className="w-full h-64 object-cover rounded-lg "
+                className="w-full h-64 object-cover rounded-lg"
               />
               <div className="mt-2">
                 <h3 className="text-lg font-semibold">{movie.posterName}</h3>

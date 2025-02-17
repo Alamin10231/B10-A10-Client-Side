@@ -162,18 +162,16 @@ const AddMovie = () => {
       </div>
 
       {/* Rating */}
-      <div>
-  <label className="block text-sm font-medium text-gray-700">
-    Rating: {rating}
-  </label>
-  <Rating
-    emptySymbol={<FaRegStar className="text-gray-400 text-2xl" />}
-    fullSymbol={<FaStar className="text-yellow-500 text-2xl" />}
-    fractions={2}
-    initialRating={rating} // For example, 4.5
-    // This makes the rating display non-interactive
-  />
-</div>
+    <div>
+           <label className="block text-sm font-medium text-gray-700">Rating</label>
+           <Rating
+             emptySymbol={<FaRegStar className="text-gray-400 text-2xl" />}
+             fullSymbol={<FaStar className="text-yellow-500 text-2xl" />}
+             fractions={2}
+             initialRating={rating}
+             onChange={(value) => setRating(value)}
+           />
+         </div>
 
 
 

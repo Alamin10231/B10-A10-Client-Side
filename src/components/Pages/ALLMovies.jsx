@@ -1,10 +1,11 @@
 import React from 'react';
 import FeatureMovie from '../FeatureMovie/FeatureMovie';
+import Searchlist from '../Searchlist/Searchlist';
 
 const ALLMovies = () => {
                     return (
                                         <div>
-                                       <h1>hlw</h1>
+                                      <Searchlist></Searchlist>
                                         </div>
                     );
 };

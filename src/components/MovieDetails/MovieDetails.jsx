@@ -1,12 +1,35 @@
 import { Link, useLoaderData, useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const MovieDetails = () => {
+const MovieDetails = ({addtofav}) => {
   const Navigate = useNavigate()
   const { id } = useParams();
   const data = useLoaderData();
+
+  const handleAddToFavorites = () => {
+    // Get current favorites or set an empty array if none exists
+    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+    // Check if the movie is already added (assuming each movie has a unique 'id')
+    if (!favorites.find(movie => movie._id === data._id)) {
+      favorites.push(data);
+      localStorage.setItem("favorites", JSON.stringify(favorites));
+
+      Swal.fire({
+        title: "Added!",
+        text: "Movie added to favorites.",
+        icon: "success",
+      });
+    } else {
+      Swal.fire({
+        title: "Already Added",
+        text: "This movie is already in your favorites.",
+        icon: "info",
+      });
+    }
+  };
   const handledelete = (id)=>{
-    console.log("delete",id)
+   
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -74,9 +97,11 @@ const MovieDetails = () => {
               <button onClick={()=>handledelete(id)} className="bg-indigo-500 hover:bg-indigo-400 text-white font-semibold py-2 px-6 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105">
                 Delete
               </button>
-              <button className="bg-transparent border border-indigo-500 hover:bg-indigo-500 hover:text-white text-indigo-500 font-semibold py-2 px-6 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105">
+              
+              <button onClick={handleAddToFavorites} className="bg-transparent border border-indigo-500 hover:bg-indigo-500 hover:text-white text-indigo-500 font-semibold py-2 px-6 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105">
                 Add to Favorites
               </button>
+              
              <Link to={`/updatemovie/${id}`}>
              <button className="bg-transparent border border-indigo-500 hover:bg-indigo-500 hover:text-white text-indigo-500 font-semibold py-2 px-6 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105">
                 Update Movie
