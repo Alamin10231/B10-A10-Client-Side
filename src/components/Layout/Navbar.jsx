@@ -67,7 +67,7 @@ const Navbar = () => {
       </NavLink>
     </>
   );
- 
+
   const handleSignOut = () => {
     signout()
       .then(() => {
@@ -77,10 +77,8 @@ const Navbar = () => {
         toast.error(error.message);
       });
   };
-  
 
   return (
-    
     <div className="navbar bg-[#C70039] w-full mx-auto font-poppins shadow-lg">
       <div className="navbar-start">
         <div className="dropdown">
@@ -116,77 +114,86 @@ const Navbar = () => {
           {list}
         </ul>
       </div>
-    
-      <div className="navbar-end space-x-2">
-      <div className="">
-      <label className="flex cursor-pointer gap-2 ">
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="20"
-    height="20"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round">
-    <circle cx="12" cy="12" r="5" />
-    <path
-      d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" />
-  </svg>
-  <input type="checkbox" value="light" className="toggle theme-controller" />
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="20"
-    height="20"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round">
-    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-  </svg>
-</label>
-      </div>
-        {user?.email ? (
 
-          <div className="dropdown dropdown-end">
-          <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-            <div className="w-10 rounded-full">
-              <img
-                alt="Tailwind CSS Navbar component"
-                src={user.photoURL || "https://via.placeholder.com/150"}
-                title={user.displayName || "User"}
-                />
-            </div>
-          </div>
-          <ul
-            tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-            <li>
-              <a className="justify-between">
-                Profile
-                
-              </a>
-            </li>
-            <li><a>Update Profile</a></li>
-            <li><button onClick={handleSignOut}>log out</button></li>
-          </ul>
+      <div className="navbar-end space-x-2">
+        <div className="">
+          <label className="flex cursor-pointer gap-2 ">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <circle cx="12" cy="12" r="5" />
+              <path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" />
+            </svg>
+            <input
+              type="checkbox"
+              value="light"
+              className="toggle theme-controller"
+            />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </label>
         </div>
+        {user?.email ? (
+          <div className="dropdown dropdown-end">
+            <div
+              tabIndex={0}
+              role="button"
+              className="btn btn-ghost btn-circle avatar"
+            >
+              <div className="w-10 rounded-full">
+                <img
+                  alt="Tailwind CSS Navbar component"
+                  src={user.photoURL || "https://via.placeholder.com/150"}
+                  title={user.displayName || "User"}
+                />
+              </div>
+            </div>
+            <ul
+              tabIndex={0}
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+            >
+              <li>
+                <a className="justify-between">Profile</a>
+              </li>
+              <li>
+                <a>Update Profile</a>
+              </li>
+              <li>
+                <button onClick={handleSignOut}>log out</button>
+              </li>
+            </ul>
+          </div>
         ) : (
-          
-          <div className="space-x-2">
-          <Link to="/login">
-           <button className="text-white bg-[#900C3F] px-4 py-2 rounded-lg hover:bg-[#7A0B35] transition duration-300">
-             Log in
-           </button>
-         </Link>
-         <Link to="/register">
-           <button className="text-white bg-[#900C3F] px-4 py-2 rounded-lg hover:bg-[#7A0B35] transition duration-300">
-             Register
-           </button>
-         </Link>
+          <div className="space-x-2 flex">
+            <Link to="/login">
+              <button className="text-white bg-[#900C3F] px-4 py-2 rounded-lg hover:bg-[#7A0B35] transition duration-300">
+                Log in
+              </button>
+            </Link>
+            <Link to="/register">
+              <button className=  " hidden md:flex text-white bg-[#900C3F] px-4 py-2 rounded-lg hover:bg-[#7A0B35] transition duration-300">
+                Register
+              </button>
+            </Link>
           </div>
         )}
       </div>
@@ -195,4 +202,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-

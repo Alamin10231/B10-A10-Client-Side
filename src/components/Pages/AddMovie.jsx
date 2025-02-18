@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 import { FaRegStar, FaStar } from "react-icons/fa";
 import Rating from "react-rating";
+import { useNavigate } from "react-router-dom";
 
 const AddMovie = () => {
   const [moviePoster, setMoviePoster] = useState("");
@@ -11,8 +12,9 @@ const AddMovie = () => {
   const [duration, setDuration] = useState("");
   const [rating, setRating] = useState(0);
   const [summary, setSummary] = useState("");
+  const navigate = useNavigate();
 
-  const [releaseYear, setReleaseYear] = useState(""); // Release Year স্টেট যোগ করুন
+  const [releaseYear, setReleaseYear] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,13 +24,18 @@ const AddMovie = () => {
     const genre = form.genre.value;
     const duration = form.duration.value;
     const summary = form.summary.value;
-    const releaseYear = form.releaseYear.value; // Release Year ভ্যালু নিন
-    const newmovie = { imagelink, movietitle, genre, duration, rating, summary, releaseYear }; // Release Year যোগ করুন
+    const releaseYear = form.releaseYear.value;
+    const newmovie = {
+      imagelink,
+      movietitle,
+      genre,
+      duration,
+      rating,
+      summary,
+      releaseYear,
+    };
     console.log(newmovie);
 
-
-
-    // ভ্যালিডেশন চেক
     if (!moviePoster || !moviePoster.startsWith("http")) {
       toast.error("Please Provide a valid image link");
       return;
@@ -49,8 +56,16 @@ const AddMovie = () => {
       toast.error("Summary must be at least 10 characters long.");
       return;
     }
-    if (!releaseYear || releaseYear < 1900 || releaseYear > new Date().getFullYear() + 5) {
-      toast.error("Please provide a valid release year (1900 - " + (new Date().getFullYear() + 5) + ").");
+    if (
+      !releaseYear ||
+      releaseYear < 1900 ||
+      releaseYear > new Date().getFullYear() + 5
+    ) {
+      toast.error(
+        "Please provide a valid release year (1900 - " +
+          (new Date().getFullYear() + 5) +
+          ")."
+      );
       return;
     }
     fetch("https://movie-nest-website-server.vercel.app/movie", {
@@ -70,6 +85,8 @@ const AddMovie = () => {
             icon: "success",
             draggable: true,
           });
+          navigate("/");
+          form.reset();
         }
       });
   };
@@ -78,7 +95,6 @@ const AddMovie = () => {
     <form onSubmit={handleSubmit} className="space-y-4 w-10/12 mx-auto my-20">
       <h1 className="text-bold text-3xl text-center py-5">Add New Movie</h1>
 
-      {/* Movie Poster */}
       <div>
         <label className="block text-sm font-medium text-gray-700">
           Movie Poster (Image Link)
@@ -93,7 +109,6 @@ const AddMovie = () => {
         />
       </div>
 
-      {/* Movie Title */}
       <div>
         <label className="block text-sm font-medium text-gray-700">
           Movie Title
@@ -108,7 +123,6 @@ const AddMovie = () => {
         />
       </div>
 
-      {/* Genre Dropdown */}
       <div>
         <label className="block text-sm font-medium text-gray-700">Genre</label>
         <select
@@ -129,7 +143,6 @@ const AddMovie = () => {
         </select>
       </div>
 
-      {/* Duration */}
       <div>
         <label className="block text-sm font-medium text-gray-700">
           Duration (in minutes)
@@ -144,7 +157,6 @@ const AddMovie = () => {
         />
       </div>
 
-      {/* Release Year */}
       <div>
         <label className="block text-sm font-medium text-gray-700">
           Release Year
@@ -156,30 +168,26 @@ const AddMovie = () => {
           onChange={(e) => setReleaseYear(e.target.value)}
           placeholder="Enter release year..."
           min="1900"
-          max={new Date().getFullYear() + 5} // বর্তমান বছর + ৫ বছর পর্যন্ত অনুমতি
+          max={new Date().getFullYear() + 5}
           className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#900C3F] focus:border-[#900C3F]"
         />
       </div>
 
-      {/* Rating */}
-    <div>
-           <label className="block text-sm font-medium text-gray-700">Rating</label>
-           <Rating
-             emptySymbol={<FaRegStar className="text-gray-400 text-2xl" />}
-             fullSymbol={<FaStar className="text-yellow-500 text-2xl" />}
-             fractions={2}
-             initialRating={rating}
-             onChange={(value) => setRating(value)}
-           />
-         </div>
-
-
-
-    
       <div>
-        <label className="block text-sm font-medium ">
-          Summary
+        <label className="block text-sm font-medium text-gray-700">
+          Rating
         </label>
+        <Rating
+          emptySymbol={<FaRegStar className="text-gray-400 text-2xl" />}
+          fullSymbol={<FaStar className="text-yellow-500 text-2xl" />}
+          fractions={2}
+          initialRating={rating}
+          onChange={(value) => setRating(value)}
+        />
+      </div>
+
+      <div>
+        <label className="block text-sm font-medium ">Summary</label>
         <textarea
           name="summary"
           value={summary}
@@ -191,7 +199,6 @@ const AddMovie = () => {
         />
       </div>
 
-     
       <div>
         <button
           type="submit"

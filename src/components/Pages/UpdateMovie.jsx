@@ -93,7 +93,7 @@ const UpdateMovie = () => {
     <form onSubmit={handleUpdatedMovie} className="space-y-4 w-10/12 mx-auto my-20">
       <h1 className="text-bold text-3xl text-center py-5">Update Movie</h1>
 
-      {/* Movie Poster */}
+   
       <div>
         <label className="block text-sm font-medium text-gray-700">Movie Poster (Image Link)</label>
         <input
@@ -106,7 +106,7 @@ const UpdateMovie = () => {
         />
       </div>
 
-      {/* Movie Title */}
+   
       <div>
         <label className="block text-sm font-medium text-gray-700">Movie Title</label>
         <input
@@ -119,7 +119,7 @@ const UpdateMovie = () => {
         />
       </div>
 
-      {/* Genre Dropdown */}
+   
       <div>
         <label className="block text-sm font-medium text-gray-700">Genre</label>
         <select
@@ -140,7 +140,7 @@ const UpdateMovie = () => {
         </select>
       </div>
 
-      {/* Duration */}
+  
       <div>
         <label className="block text-sm font-medium text-gray-700">Duration (in minutes)</label>
         <input
@@ -153,7 +153,7 @@ const UpdateMovie = () => {
         />
       </div>
 
-      {/* Release Year */}
+     
       <div>
         <label className="block text-sm font-medium text-gray-700">Release Year</label>
         <input
@@ -168,7 +168,7 @@ const UpdateMovie = () => {
         />
       </div>
 
-      {/* Rating */}
+    
       <div>
         <label className="block text-sm font-medium text-gray-700">Rating</label>
         <Rating
@@ -180,7 +180,7 @@ const UpdateMovie = () => {
         />
       </div>
 
-      {/* Summary */}
+  
       <div>
         <label className="block text-sm font-medium text-gray-700">Summary</label>
         <textarea
@@ -194,7 +194,7 @@ const UpdateMovie = () => {
         />
       </div>
 
-      {/* Submit Button */}
+      
       <div>
         <button
           type="submit"

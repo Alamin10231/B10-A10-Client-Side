@@ -18,14 +18,15 @@ const Register = () => {
     console.log(name, email, photourl, password);
 
     const emailregex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if(!emailregex.test(email)){
+    if (!emailregex.test(email)) {
       toast.error("Email is valid");
       return;
     }
     const passwordregex = /^(?=.*[A-Z])(?=.*[a-z]).{6,}$/;
-    if(!passwordregex.test(password)){
-      
-      toast.error("Password must contain at least one uppercase letter, one lowercase letter, and be at least 6 characters long");
+    if (!passwordregex.test(password)) {
+      toast.error(
+        "Password must contain at least one uppercase letter, one lowercase letter, and be at least 6 characters long"
+      );
       return;
     }
 
@@ -45,16 +46,16 @@ const Register = () => {
   };
   const handleGoogle = () => {
     signinwithgoogle()
-    .then(result => {console.log(result.user)
-      toast.success("congrachulation")
-      navigate("/");
-    })
+      .then((result) => {
+        console.log(result.user);
+        toast.success("congrachulation");
+        navigate("/");
+      })
       .catch((error) => {
         console.log(error.message);
         toast.error(error.message);
       });
   };
-
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-600 via-purple-500 to-pink-500">

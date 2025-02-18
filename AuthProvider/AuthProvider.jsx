@@ -53,13 +53,7 @@ export const AuthProvider = ({ children }) => {
         setloading(false);
         throw error;
       });
-  };
-
-  // const updateprofile = (auth,currentUser)
-  // if(updateprofile !== null){
-  //   const displayName = updateprofile.displayName;
-  // }
-
+  }
   const resetpass = (email) => {
     setloading(true);
     return sendPasswordResetEmail(auth, email);
