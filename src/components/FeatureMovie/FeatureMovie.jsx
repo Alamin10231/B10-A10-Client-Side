@@ -10,7 +10,7 @@ const FeatureMovie = ({ fmovie }) => {
     <div className="gap-6 p-6">
       <div className="card card-compact bg-base-100 shadow-xl transform transition-transform duration-300 hover:scale-105">
         <figure className="relative overflow-hidden h-[500px]">
-          <img src={imagelink} alt={movietitle} className="w-full h-full object-cover" />
+          <img src={imagelink} alt={movietitle} className="w-full h-full " />
          
         </figure>
         <div className="card-body p-6 bg-white rounded-lg shadow-md">
