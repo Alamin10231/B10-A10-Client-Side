@@ -55,14 +55,27 @@ export const AuthProvider = ({ children }) => {
       });
   };
 
+  // const updateprofile = (auth,currentUser)
+  // if(updateprofile !== null){
+  //   const displayName = updateprofile.displayName;
+  // }
+
   const resetpass = (email) => {
     setloading(true);
     return sendPasswordResetEmail(auth, email);
   };
+  useEffect(()=>{
+  const unsubscribe = onAuthStateChanged(auth,currentUser=>{
+    console.log(currentUser)
+    setuser(currentUser)
+    setloading(false)
+    return ()=>unsubscribe()
+  })
+  },[])
 
   const authInfo = {
     name: "alamin",
-    user, // user স্টেট পাস করুন
+    user,
     loading,
     register,
     login,

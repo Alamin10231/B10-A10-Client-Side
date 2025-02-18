@@ -45,7 +45,9 @@ const [error,seterror]= useState('')
   })
   }
   const handleforgetpass =(e)=>{
+    
     e.preventDefault()
+    console.log("resetpassword")
     const email = emailRef.current.value;
    if(!email){
     toast.error("Please enter your email address.")
@@ -85,7 +87,7 @@ const [error,seterror]= useState('')
             />
           </div>
           <div>
-            <label onClick={handleforgetpass} htmlFor="password" className="block text-gray-700 font-medium mb-1">
+            <label  htmlFor="password" className="block text-gray-700 font-medium mb-1">
               Password
             </label>
             <input
@@ -99,7 +101,7 @@ const [error,seterror]= useState('')
             />
           </div>
           <div className="text-right">
-            <button type="button" className="text-sm text-green-600 hover:underline">
+            <button onClick={handleforgetpass} type="button" className="text-sm text-green-600 hover:underline">
               Forgot Password?
             </button>
           </div>
