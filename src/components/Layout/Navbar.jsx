@@ -185,9 +185,9 @@ const Navbar = () => {
         ) : (
           <div className="space-x-2 flex">
             <Link to="/login">
-              <button className="text-white bg-[#900C3F] px-4 py-2 rounded-lg hover:bg-[#7A0B35] transition duration-300">
-                Log in
-              </button>
+            <button className="text-white bg-[#900C3F] px-3 py-1 sm:px-4 sm:py-2 rounded-lg hover:bg-[#7A0B35] transition duration-300 text-sm sm:text-base">
+  Log in
+</button>
             </Link>
             <Link to="/register">
               <button className=  " hidden md:flex text-white bg-[#900C3F] px-4 py-2 rounded-lg hover:bg-[#7A0B35] transition duration-300">
