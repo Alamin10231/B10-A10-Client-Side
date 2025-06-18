@@ -1,38 +1,38 @@
 [
-                    {
-                      "title": "Avatar 3: The Seed Bearer Official Trailer",
-                      "image": "https://i.ibb.co.com/997tKgcb/hq720.jpg",
-                      "description": "James Cameron returns with the third installment of the Avatar series, 'Avatar 3: The Seed Bearer.' The trailer showcases breathtaking visuals of Pandora, new Na'vi tribes, and an epic battle for survival. A must-watch for fans of sci-fi and fantasy.",
-                      "trailer": "https://www.youtube.com/watch?v=example1"
-                    },
-                    {
-                      "title": "Spider-Man 4: Beyond the Web Official Trailer",
-                      "image": "https://i.ibb.co.com/SDpy9XPv/hq720-1.jpg",
-                      "description": "Peter Parker faces his greatest challenge yet in 'Spider-Man 4: Beyond the Web.' The trailer teases new villains, multiverse chaos, and emotional stakes as Spider-Man fights to save reality itself.",
-                      "trailer": "https://www.youtube.com/watch?v=example2"
-                    },
-                    {
-                      "title": "Avengers: Secret Wars Official Trailer",
-                      "image": "https://i.ibb.co.com/20CtJF8q/maxresdefault.jpg",
-                      "description": "The Marvel Cinematic Universe reaches its climax in 'Avengers: Secret Wars.' The trailer reveals the ultimate showdown between heroes and villains across the multiverse, with jaw-dropping action and surprises.",
-                      "trailer": "https://www.youtube.com/watch?v=example3"
-                    },
-                    {
-                      "title": "John Wick 5: Redemption Official Trailer",
-                      "image": "https://i.ibb.co.com/9mqSpfYy/maxresdefault-1.jpg",
-                      "description": "John Wick is back in 'John Wick 5: Redemption,' and the stakes have never been higher. The trailer promises intense action, new allies, and a final quest for vengeance.",
-                      "trailer": "https://www.youtube.com/watch?v=example4"
-                    },
-                    {
-                      "title": "Black Panther: Wakanda Forever Part 2 Official Trailer",
-                      "image": "https://i.ibb.co.com/bg8jX5pj/maxresdefault-2.jpg",
-                      "description": "The legacy of Wakanda continues in 'Black Panther: Wakanda Forever Part 2.' The trailer highlights new threats, advanced technology, and the rise of a new Black Panther.",
-                      "trailer": "https://www.youtube.com/watch?v=example5"
-                    },
-                    {
-                      "title": "The Matrix: Resurrections Part 2 Official Trailer",
-                      "image": "https://i.ibb.co.com/MyfqdFHn/maxresdefault-3.jpg",
-                      "description": "Neo and Trinity return in 'The Matrix: Resurrections Part 2.' The trailer teases mind-bending action, philosophical depth, and a battle to reclaim humanity's future.",
-                      "trailer": "https://www.youtube.com/watch?v=example6"
-                    }
-                  ]
+  {
+    "title": "Avatar 3: The Seed Bearer Official Trailer",
+    "image": "/images/avatar3.jpg",
+    "description": "James Cameron returns with the third installment of the Avatar series, 'Avatar 3: The Seed Bearer.' The trailer showcases breathtaking visuals of Pandora, new Na'vi tribes, and an epic battle for survival. A must-watch for fans of sci-fi and fantasy.",
+    "trailer": "https://www.youtube.com/watch?v=example1"
+  },
+  {
+    "title": "Spider-Man 4: Beyond the Web Official Trailer",
+    "image": "/images/spiderman4.jpg",
+    "description": "Peter Parker faces his greatest challenge yet in 'Spider-Man 4: Beyond the Web.' The trailer teases new villains, multiverse chaos, and emotional stakes as Spider-Man fights to save reality itself.",
+    "trailer": "https://www.youtube.com/watch?v=example2"
+  },
+  {
+    "title": "Avengers: Secret Wars Official Trailer",
+    "image": "/images/avengers_secret_wars.jpg",
+    "description": "The Marvel Cinematic Universe reaches its climax in 'Avengers: Secret Wars.' The trailer reveals the ultimate showdown between heroes and villains across the multiverse, with jaw-dropping action and surprises.",
+    "trailer": "https://www.youtube.com/watch?v=example3"
+  },
+  {
+    "title": "John Wick 5: Redemption Official Trailer",
+    "image": "/images/johnwick5.jpg",
+    "description": "John Wick is back in 'John Wick 5: Redemption,' and the stakes have never been higher. The trailer promises intense action, new allies, and a final quest for vengeance.",
+    "trailer": "https://www.youtube.com/watch?v=example4"
+  },
+  {
+    "title": "Black Panther: Wakanda Forever Part 2 Official Trailer",
+    "image": "/images/wakanda2.jpg",
+    "description": "The legacy of Wakanda continues in 'Black Panther: Wakanda Forever Part 2.' The trailer highlights new threats, advanced technology, and the rise of a new Black Panther.",
+    "trailer": "https://www.youtube.com/watch?v=example5"
+  },
+  {
+    "title": "The Matrix: Resurrections Part 2 Official Trailer",
+    "image": "/images/matrix2.jpg",
+    "description": "Neo and Trinity return in 'The Matrix: Resurrections Part 2.' The trailer teases mind-bending action, philosophical depth, and a battle to reclaim humanity's future.",
+    "trailer": "https://www.youtube.com/watch?v=example6"
+  }
+]

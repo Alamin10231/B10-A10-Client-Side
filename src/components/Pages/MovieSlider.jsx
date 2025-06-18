@@ -39,12 +39,14 @@ const MovieSlider = () => {
           <SwiperSlide key={index} className="animate__animated animate__fadeIn">
             <div className="movie-card py-10 z-10">
               <img 
-                src={movie.posterImage}
+                // src={movie.posterImage}
+                src={`${movie.posterImage}`}
+
                 alt={movie.posterName}
                 className="w-full h-64 object-cover rounded-lg"
               />
               <div className="mt-2">
-                <h3 className="text-lg font-semibold">{movie.posterName}</h3>
+                <h3 className="text-lg font-semibold">{movie.posterName} </h3>
               </div>
             </div>
           </SwiperSlide>

@@ -53,19 +53,19 @@ export const AuthProvider = ({ children }) => {
         setloading(false);
         throw error;
       });
-  }
+  };
   const resetpass = (email) => {
     setloading(true);
     return sendPasswordResetEmail(auth, email);
   };
-  useEffect(()=>{
-  const unsubscribe = onAuthStateChanged(auth,currentUser=>{
-    console.log(currentUser)
-    setuser(currentUser)
-    setloading(false)
-    return ()=>unsubscribe()
-  })
-  },[])
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      console.log(currentUser);
+      setuser(currentUser);
+      setloading(false);
+      return () => unsubscribe();
+    });
+  }, []);
 
   const authInfo = {
     name: "alamin",
@@ -79,9 +79,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <Authcontext.Provider value={authInfo}>
-      {children}
-    </Authcontext.Provider>
+    <Authcontext.Provider value={authInfo}>{children}</Authcontext.Provider>
   );
 };
 

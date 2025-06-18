@@ -32,7 +32,7 @@ const Login = () => {
         toast.error(error.message);
       });
   };
-  const handleGoogle = () => {
+  const handleGoogle = () =>{ 
     signinwithgoogle()
       .then((result) => {
         console.log(result.user);

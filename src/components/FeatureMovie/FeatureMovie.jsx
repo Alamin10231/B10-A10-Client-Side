@@ -12,6 +12,7 @@ const FeatureMovie = ({ fmovie }) => {
         <figure className="relative overflow-hidden h-[500px]">
           <img src={imagelink} alt={movietitle} className="w-full h-full " />
          
+         {/* <img src={`${imagelink}`} alt={movietitle} className="w-full h-full " /> */}
         </figure>
         <div className="card-body p-6 bg-white rounded-lg shadow-md">
           <h2 className="card-title text-2xl font-bold text-gray-800 mb-2">
